@@ -6,7 +6,6 @@ const recentOrders = [
         id: '#3847',
         customer: 'John Doe',
         product: 'Smartphone MNO',
-        product: 'Wireless Headphones',
         amount: '$99.99',
         status: 'completed',
         date: '2024-06-15'
@@ -21,13 +20,10 @@ const recentOrders = [
         date: '2024-06-15'
     },
     {
-        id: '#3849',
-        customer: 'John Smith',
-        product: 'Smart GHI',
-        product: 'Headphones',
-        amount: '$299.99',
-        status: 'pending',
-        date: '2024-06-15'
+        customer: 'John Doe',
+        products: ['Wireless Headphones HLO'],
+        amount: '$99.99',
+        status: 'completed',
     },
     {
         id: '#3850',
@@ -51,35 +47,35 @@ const recentOrders = [
 
 const topProducts = [
     {
-        name:"iPhone 15 Pro Max",
+        name: "iPhone 15 Pro Max",
         sales: "1247",
         revenue: "$2,987,234",
         trend: "up",
         change: "+8%",
     },
     {
-        name:"iPhone 14 Pro Max",
+        name: "iPhone 14 Pro Max",
         sales: "1246",
         revenue: "$1,987,234",
         trend: "up",
         change: "+18%",
     },
     {
-        name:"iPhone 11 Pro Max",
+        name: "iPhone 11 Pro Max",
         sales: "1246",
         revenue: "$9,87,234",
         trend: "up",
         change: "+12%",
     },
     {
-        name:"iPhone 13 Pro Max",
+        name: "iPhone 13 Pro Max",
         sales: "1244",
         revenue: "$4,987,234",
         trend: "up",
         change: "+28%",
     },
     {
-        name:"iPhone 17 Pro Max",
+        name: "iPhone 17 Pro Max",
         sales: "1249",
         revenue: "$6,987,234",
         trend: "down",
@@ -177,45 +173,45 @@ const TableSection = () => {
             </div>
             {/* Top Products */}
             <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl border border-slate-200/50 dark:border-700/50 overflow-hidden">
-               <div className="p-6 border-b border-slate-200/50 dark:border-slate-700/50">
-                  <div className="flex items-center justify-between">
-                    <div className="text-lg font-bold text-slate-800 dark:text-white">
-                        <h3 className='text-lg font-bold text-slate-800 dark:text-white'>Top Products</h3>
-                    </div>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
-                        best performing products
-                    </p>
-                  </div>
-                  <button className='text-blue-600 hover:text-blue-700 text-sm font-medium'>View All</button>
-               </div>
-               {/* Dynamic Data */}
-               <div className="p-6 space-y-4">
-                {topProducts.map((products, index)=>{
-                    return(
-                                          <div className="flex items-center justify-between p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors ">
-                     <div className="flex-1">
-                        <h4 className='text-sm font-semibold text-slate-800 dark:text-white'>
-                            {products.name}
-                        </h4>
-                        <p className="text-xs text-slate-500 dark:text-slate-400">
-                            {products.sales}
-                        </p>
-
-                     </div>
-                     <div className="text-right">
-                        <p className='text-sm font-semibold text-slate-800 dark:text-white'>
-                            {products.revenue}
-                        </p>
-                        <div className="flex items-center space-x-1">
-                            {products.trend === "up" ? (<TrendingUp  className='w-3 h-3 text-emerald-400'/>) : (<TrendingDown className='w-3 h-3 text-red-500'/>)}
-                            <span className={`text-xs font-medium ${products.trend === "up" ? "text-emerald-500" : "text-red-500"}`}>{products.change}</span>
+                <div className="p-6 border-b border-slate-200/50 dark:border-slate-700/50">
+                    <div className="flex items-center justify-between">
+                        <div className="text-lg font-bold text-slate-800 dark:text-white">
+                            <h3 className='text-lg font-bold text-slate-800 dark:text-white'>Top Products</h3>
                         </div>
-                     </div>
-                  </div>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">
+                            best performing products
+                        </p>
+                    </div>
+                    <button className='text-blue-600 hover:text-blue-700 text-sm font-medium'>View All</button>
+                </div>
+                {/* Dynamic Data */}
+                <div className="p-6 space-y-4">
+                    {topProducts.map((products, index) => {
+                        return (
+                            <div className="flex items-center justify-between p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors ">
+                                <div className="flex-1">
+                                    <h4 className='text-sm font-semibold text-slate-800 dark:text-white'>
+                                        {products.name}
+                                    </h4>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                                        {products.sales}
+                                    </p>
 
-                    );
-                })}
-               </div>
+                                </div>
+                                <div className="text-right">
+                                    <p className='text-sm font-semibold text-slate-800 dark:text-white'>
+                                        {products.revenue}
+                                    </p>
+                                    <div className="flex items-center space-x-1">
+                                        {products.trend === "up" ? (<TrendingUp className='w-3 h-3 text-emerald-400' />) : (<TrendingDown className='w-3 h-3 text-red-500' />)}
+                                        <span className={`text-xs font-medium ${products.trend === "up" ? "text-emerald-500" : "text-red-500"}`}>{products.change}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        );
+                    })}
+                </div>
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 import React from 'react'
 import StatsGrid from './StatsGrid'
-import Chartsection from './Chartsection'
+import ChartSection from './ChartSection'
 import TableSection from './TableSection'
 import ActivityFeed from './ActivityFeed'
 
@@ -10,7 +10,7 @@ const Dashboard = () => {
         {/* Stats Grid */}
         <StatsGrid />
         {/* Chart Section */}
-        <Chartsection />
+        <ChartSection />
 
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
           <div className="xl:col-span-2">
